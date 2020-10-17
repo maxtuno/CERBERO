@@ -204,6 +204,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <inttypes.h>
 
 #define bool char
 #define true 1
@@ -325,7 +326,7 @@ int unit_propagate(int decision_level) {
             for (j = 0; j < clauses.data[i].size; j++) {
                 literal = INDEX(clauses.data[i].data[j]);
                 if (literals.data[literal] != unset) {
-                    if (clauses.data[i].data[j] > 0 == literals.data[literal]) {
+                    if ((clauses.data[i].data[j] > 0) == literals.data[literal]) {
                         sat_flag = true;
                         break;
                     } else {
@@ -537,7 +538,7 @@ int parse_literal(char **in) {
 }
 
 void read_clause(char **in, vector_t *lits) {
-    int parsed_lit, var;
+    int parsed_lit;
     vector_init(lits, 0, new);
     for (;;) {
         parsed_lit = parse_literal(in);
