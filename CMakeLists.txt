@@ -3,6 +3,6 @@ project(cerberus)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
-set(CMAKE_CXX_STANDARD 89)
+set(CMAKE_CC_STANDARD 89)
 
 add_executable(cerbero cerbero.c)
